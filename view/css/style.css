@@ -18,9 +18,6 @@ body{
         text-align: center;
         font-size: 30px;
 }
-.main{
-    
-}
 a{
     display: inline-block;
     width: 110px;
@@ -53,4 +50,8 @@ a{
 .right a{
     margin-left: 5px;
     color:#343E47;
+}
+.form-conteiner{
+    width: 200px;
+    margin: 0 auto;
 }
