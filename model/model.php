@@ -1,5 +1,4 @@
 <?php
-
 class DB
 {
     static $link_db;
@@ -20,4 +19,5 @@ class DB
 
 // Запускаем не отходя от кассы
 DB::connect();
+ 
 

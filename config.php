@@ -15,3 +15,16 @@ define('VIEW', 'view/');
 
 //активный шаблон
 define('TEMPLATE', PATH.VIEW);
+
+//необходимо для подключения к БД
+// сервер БД
+define('HOST', 'localhost');
+
+// пользователь
+define('USER', 'root');
+
+// пароль
+define('PASS', '');
+
+// БД
+define('DB', 'tschat');
