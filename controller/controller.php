@@ -13,7 +13,10 @@ switch ($view) {
         $headeradd = " - регистрация";
 
         break;
+    case 'logon':
+        $headeradd = " - вход";
 
+        break;
     default:
         break;
 }
