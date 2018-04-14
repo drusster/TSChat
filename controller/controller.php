@@ -5,6 +5,13 @@ require_once MODEL;
 // подключение библиотеки функций
 require_once 'functions/functions.php';
 
+//регистрация
+if(isset($_POST['registration'])){
+    registration();
+}
+
+
+
 // получение динамичной части шаблона .content
 $view = empty($_GET['view']) ? 'enter' : $_GET['view'];
 

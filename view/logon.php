@@ -1,4 +1,4 @@
-<?php
+<?php defined('peremen') or die();
     require_once 'inc/form.php';
 ?>
 <div class="btn-conteiner left">

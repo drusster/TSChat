@@ -12,3 +12,7 @@
     <div class="header">
         Чат<?=$headeradd?>
     </div>
+    <?php if(isset($_SESSION['res'])):
+        echo $_SESSION['res'];
+        unset ($_SESSION['res']);
+    endif;?> 

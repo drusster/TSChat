@@ -28,3 +28,7 @@ define('PASS', '');
 
 // БД
 define('DB', 'tschat');
+
+if (session_status() == PHP_SESSION_NONE) {//проверка не включена ли сессия
+    session_start();
+}

@@ -1,8 +1,21 @@
 <?php
 defined('peremen') or die();
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//фильтр входящих данных
+function clear($var){
+    $var = mysqli_real_escape_string(db::$link_db, strip_tags(trim($var)));
+    $var = mb_substr($var, 0, 1000, 'UTF-8');
+    return $var;
+}
+
+function redirect($http=FALSE){
+    
+    if($redirect === null AND $http === FALSE) {
+        $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : PATH;
+        //print_arr($_SERVER);echo "asdfasdf";//$_SERVER['HTTP_REFERER'];
+    }else{
+        $redirect = $http;
+    }
+    header("Location: $redirect");
+    exit;
+}
 
