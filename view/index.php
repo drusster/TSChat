@@ -1,6 +1,7 @@
-<?php require_once 'inc/header.php'?>
-    <div class="content">
-        <?php include $view. '.php' ?>
-    </div>
+    <?php 
+    defined('peremen') or die();
+    require_once 'inc/header.php';
+    include $view. '.php'; 
+    ?>
 </body>
 </html>

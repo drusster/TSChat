@@ -1,8 +1,13 @@
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+<div class="main">
+    <div class="btn-conteiner left">
+        <a href="index.php?view=logon">
+            Войти
+        </a>
+    </div>
+    <div class="btn-conteiner right">
+        <a href="index.php?view=logout">
+            Регистрация
+        </a>
+    </div>
+</div>
+   

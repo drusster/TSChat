@@ -1,4 +1,4 @@
-<?php defined('KU4UBEY') or die();?>
+<?php defined('peremen') or die();?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,5 +8,5 @@
     </head>
 <body>
     <div class="header">
-        
+        Чат<?=$headeradd?>
     </div>
