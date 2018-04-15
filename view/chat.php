@@ -4,12 +4,12 @@
     <form method="POST" name="send_message">
         <input type="text" name="message" placeholder="Текст сообщения" autofocus >
         <div class="btn-conteiner-chat send">
-            <a href="" id="but_send_message">
+            <a href="" id="button_send_message">
                 Отправить
             </a>
         </div>
         <div class="btn-conteiner-chat exit">
-            <a href="" id="but_send_message">
+            <a href="/?do=logout" id="button_exit">
                 Выход
             </a>
         </div>

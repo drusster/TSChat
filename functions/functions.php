@@ -19,3 +19,9 @@ function redirect($http=FALSE){
     exit;
 }
 
+/* ===Выход пользователя=== */
+function logout(){
+    unset($_SESSION['user_id'], $_SESSION['login']);
+}
+/* ===Выход пользователя=== */
+

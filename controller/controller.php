@@ -5,6 +5,11 @@ require_once MODEL;
 // подключение библиотеки функций
 require_once 'functions/functions.php';
 
+// выход пользователя
+if(isset($_GET['do']) AND $_GET['do'] === 'logout'){
+    logout();
+    redirect('/');
+}
 //регистрация
 if(isset($_POST['registration'])){
     registration();

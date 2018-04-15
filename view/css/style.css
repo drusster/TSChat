@@ -93,7 +93,7 @@ input{
     margin:5px auto;
     max-width: 470px;
     border:3px solid #CE7C54;
-    padding:15px!important;
+    padding:15px;
     color: #82B16A;
     background:rgba(154,209,125,0.2);   
     border-color: #9AD17D;
@@ -106,8 +106,7 @@ input{
     margin: 20px 0 30px;
 }
 .chat_content form input{
-    width: 50%;
-    max-width: 700px;
+    width: 60%;
     display: block;
     float: left;
 }
@@ -138,7 +137,6 @@ input{
 }
 .btn-conteiner-chat.exit{
     float: right;
-    margin-right: 30px;
 }
 .btn-conteiner-chat a{
     color:#fff;
