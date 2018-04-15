@@ -8,6 +8,12 @@ require_once 'functions/functions.php';
 //регистрация
 if(isset($_POST['registration'])){
     registration();
+}elseif(isset($_POST['login'])  AND isset($_POST['pass'])){ //авторизация
+    logon();
+    if(!$_SESSION['user_id']){ 
+        // если авторизация неудачна
+        $_SESSION['res'] = "<div class='error'>Вы ввели неправильно логин/пароль.</div>";
+    }
 }
 
 
