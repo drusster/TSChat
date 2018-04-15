@@ -2,21 +2,23 @@
     margin:0;
     padding:0;
     outline:0;
+    box-sizing: border-box;
 }
 body{
-	color:#343E47;
-        font-weight: normal;
-        font-family: open_sansregular, Arial, Helvetica, sans-serif;
-        font-size: 14px;
-	background:#fff;
+    padding: 10px;
+    color:#343E47;
+    font-weight: normal;
+    font-family: open_sansregular, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    background:#fff;
 }
 .header{
-	background:#fff; 
-	min-width:1200px;
-	max-width:1600px;
-	margin:10px auto;
-        text-align: center;
-        font-size: 30px;
+    background:#fff; 
+    min-width:1200px;
+    max-width:1600px;
+    margin:10px auto;
+    text-align: center;
+    font-size: 30px;
 }
 a{
     display: inline-block;
@@ -98,7 +100,10 @@ input{
     font-size: 20px;
 }
 .chat_content{
-    padding: 20px;
+    display: block;
+    width: 100%;
+    float: left;
+    margin: 20px 0 30px;
 }
 .chat_content form input{
     width: 50%;
@@ -109,7 +114,7 @@ input{
 .chat_content span{
     display: block;
     float: left;
-    margin-right: 30px;
+    margin: 0 30px;
     line-height: 30px;
 }
 .btn-conteiner-chat.send a{
@@ -133,8 +138,27 @@ input{
 }
 .btn-conteiner-chat.exit{
     float: right;
+    margin-right: 30px;
 }
 .btn-conteiner-chat a{
     color:#fff;
     border: none;
+}
+.message{
+    display: table;
+    width: 100%;
+    padding: 10px;
+    margin: 10px auto ;
+}
+.message span{
+    display: table-row;
+    font-style: italic;
+    font-weight: bold;
+    line-height: 20px;
+}
+.message.my{
+    background-color: #def5d2;
+}
+.message.alien{
+    background-color:  #d2e4f7;
 }

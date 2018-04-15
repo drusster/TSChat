@@ -14,5 +14,10 @@
             </a>
         </div>
     </form>
-    
+</div>
+<div class="message alien">
+    <span>Первый логин</span>Сообщение от первого логина
+</div>
+<div class="message my">
+    <span>Мой логин</span>Моё сообщение
 </div>
