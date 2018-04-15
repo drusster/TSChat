@@ -15,9 +15,20 @@
         </div>
     </form>
 </div>
-<div class="message alien">
+
+<?php
+    foreach ($messages as $text) {
+        ?>
+        <div class="message <?=($text['login'] === $_SESSION['login'])? 'my': 'alien';?>">
+            <span><?=$text['login']?></span><?=$text['text']?>
+        </div>
+<?php
+    }
+?>
+
+<!--<div class="message alien">
     <span>Первый логин</span>Сообщение от первого логина
 </div>
 <div class="message my">
     <span>Мой логин</span>Моё сообщение
-</div>
+</div>-->

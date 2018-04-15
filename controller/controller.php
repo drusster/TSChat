@@ -22,6 +22,12 @@ if(isset($_POST['registration'])){
     redirect();
 }
 
+//сообщение от юзера
+if(isset($_POST['message']) AND $_POST['message']){
+    message();
+    redirect();
+}
+
 // получение динамичной части шаблона 
 if(isset($_SESSION['user_id']) AND isset($_SESSION['login'])) {
     $view = 'chat';
@@ -39,7 +45,8 @@ switch ($view) {
         break;
     case 'chat':
         $headeradd = " - [".$_SESSION['login']."]";
-
+        $messages = read_messages();
+        print_arr($messages);
         break;
     default:
         break;

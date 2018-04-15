@@ -24,4 +24,8 @@ function logout(){
     unset($_SESSION['user_id'], $_SESSION['login']);
 }
 /* ===Выход пользователя=== */
-
+function print_arr($arr){
+    echo "<pre>";
+    print_r($arr);
+    echo "</pre>";
+}

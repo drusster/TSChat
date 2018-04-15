@@ -89,3 +89,29 @@ function logon(){
     }
 
 }
+
+//записываю сообщение из чата
+function message(){
+    $query = "INSERT INTO messages (text, user_id)
+                        VALUES ('".clear($_POST['message'])."', '".$_SESSION['user_id']."')";
+    $res = mysqli_query(db::$link_db, $query) or die(mysqli_error(db::$link_db));
+    if($user_id = mysqli_insert_id(db::$link_db)){
+        
+    }
+    else{
+        //$_SESSION['res'] = "<div class='error'>Произошла внутренняя ошибка. Просим повторить регистрацию ещё раз.</div>";
+    }
+}
+
+//читаю записанные ранее сообщения
+function read_messages(){
+    //объединяю результаты по колонке user_id внешней таблицы messages
+    $query = "SELECT m.text, u.login 
+                    FROM messages m
+                        LEFT JOIN users u ON m.user_id = u.user_id LIMIT 30";
+    $res = mysqli_query(db::$link_db, $query) or die(mysqli_error(db::$link_db));
+    while($row = mysqli_fetch_assoc($res)){
+        $text[] = $row;
+    }
+    return (array)$text;
+}
