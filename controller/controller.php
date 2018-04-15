@@ -33,7 +33,7 @@ switch ($view) {
 
         break;
     case 'chat':
-        $headeradd = " - ".$_SESSION['login'];
+        $headeradd = " - [".$_SESSION['login']."]";
 
         break;
     default:

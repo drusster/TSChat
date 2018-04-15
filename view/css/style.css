@@ -30,11 +30,14 @@ a{
     width: 50%;
     vertical-align: middle;
 }
-.btn-conteiner a{
-    line-height: 40px;
+.btn-conteiner-chat{
+    float: left;
+}
+.btn-conteiner a, .btn-conteiner-chat a{
+    line-height: 30px;
     border-radius: 5px;
     font-size: 16px;
-    height: 40px;
+    height: 30px;
 }
 .btn-conteiner.left{
      text-align: right;
@@ -61,12 +64,14 @@ a{
     line-height: 30px;
     font-weight: bold;
 }
-.form-conteiner input{
-    width: 300px;
+input{
     height: 30px;
     border: #343E47 solid 1px;
     border-radius: 5px;
     padding-left: 10px;
+}
+.form-conteiner input{
+    width: 300px;
 }
 .error{
     margin:5px auto;
@@ -91,4 +96,45 @@ a{
     background:rgba(154,209,125,0.2);   
     border-color: #9AD17D;
     font-size: 20px;
+}
+.chat_content{
+    padding: 20px;
+}
+.chat_content form input{
+    width: 50%;
+    max-width: 700px;
+    display: block;
+    float: left;
+}
+.chat_content span{
+    display: block;
+    float: left;
+    margin-right: 30px;
+    line-height: 30px;
+}
+.btn-conteiner-chat.send a{
+    background-color: #9AD17D;
+    margin-left: 20px;
+}
+.btn-conteiner-chat.send a:hover{
+    background-color: #33cc00;
+}
+.btn-conteiner-chat.send a:active{
+    background-color: #82B16A;
+}
+.btn-conteiner-chat.exit a{
+    background-color: #cc3300;
+}
+.btn-conteiner-chat.exit a:hover{
+    background-color: #cc6600;
+}
+.btn-conteiner-chat.exit a:active{
+    background-color: #cc0066;
+}
+.btn-conteiner-chat.exit{
+    float: right;
+}
+.btn-conteiner-chat a{
+    color:#fff;
+    border: none;
 }
