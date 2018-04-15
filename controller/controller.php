@@ -18,7 +18,9 @@ if(isset($_POST['registration'])){
 }
 
 // получение динамичной части шаблона 
-if(isset($_SESSION['user_id'])) $view = 'chat';
+if(isset($_SESSION['user_id']) AND isset($_SESSION['login'])) {
+    $view = 'chat';
+}
 else $view = empty($_GET['view']) ? 'enter' : $_GET['view'];
 
 switch ($view) {
@@ -31,7 +33,7 @@ switch ($view) {
 
         break;
     case 'chat':
-        $headeradd = " - имя";
+        $headeradd = " - ".$_SESSION['login'];
 
         break;
     default:

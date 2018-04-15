@@ -45,10 +45,11 @@ function registration(){
             $query = "INSERT INTO users (login, pass)
                         VALUES ('".clear($login)."', '".clear($pass)."')";
             $res = mysqli_query(db::$link_db, $query) or die(mysqli_error(db::$link_db));
-            if($customer_id = mysqli_insert_id(db::$link_db)){
+            if($user_id = mysqli_insert_id(db::$link_db)){
                 $_SESSION['res'] = "<div class='success'>Регистрация прошла успешно.</div>";
                 // если запись добавлена
-                $_SESSION['customer_id'] = $customer_id;
+                $_SESSION['user'] = $user_id;
+                $_SESSION['login'] = $login;
                 redirect("?view=chat");
             }
             else{
@@ -78,6 +79,7 @@ function logon(){
             // если авторизация успешна
             $row = mysqli_fetch_row($res);
             $_SESSION['user_id'] = $row[0];
+            $_SESSION['login'] = $login;
             $_SESSION['res'] = "<div class='success'>Рады вас видеть.</div>";
             redirect("?view=chat");
         }
