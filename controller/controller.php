@@ -13,6 +13,7 @@ if(isset($_GET['do']) AND $_GET['do'] === 'logout'){
 //регистрация
 if(isset($_POST['registration'])){
     registration();
+    redirect('?view=chat');
 }elseif(isset($_POST['login'])  AND isset($_POST['pass'])){ //авторизация
     logon();
     if(!$_SESSION['user_id']){ 

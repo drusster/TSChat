@@ -48,7 +48,7 @@ function registration(){
             if($user_id = mysqli_insert_id(db::$link_db)){
                 $_SESSION['res'] = "<div class='success'>Регистрация прошла успешно.</div>";
                 // если запись добавлена
-                $_SESSION['user'] = $user_id;
+                $_SESSION['user_id'] = $user_id;
                 $_SESSION['login'] = $login;
                 redirect("?view=chat");
             }
