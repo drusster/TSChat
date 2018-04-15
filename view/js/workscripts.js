@@ -1,5 +1,5 @@
-jQuery(document).ready(function($){
-$( "#reg" ).click(function() {
+jQuery(document).ready(function($){ 
+$( "#reg").add("#authorization").click(function() {
     event.preventDefault();
     if($( "input[name=login]" ).val() === ""){
         $( "input[name=login]" ).attr({"placeholder":"Логин не может быть пустым!"});
@@ -8,6 +8,8 @@ $( "#reg" ).click(function() {
     }else if ($(this).attr("name") === "registration"){ //добавлю скрытыю переменную перед отправкой регистрационной формы
         $("form[name=form_login_and_pass]").append("<input type='hidden' name='registration' />");
         $("form[name=form_login_and_pass]").submit();
+    }else{
+        $("form[name=form_login_and_pass]").submit();
     }  
 });
 
@@ -15,6 +17,7 @@ $( "#reg" ).click(function() {
 $("form[name=form_login_and_pass]").keypress(function(e){
     if(e.keyCode==13){
         $("#reg").trigger("click");
+        $("#authorization").trigger("click");
     }
 });
     

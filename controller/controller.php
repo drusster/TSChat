@@ -14,12 +14,12 @@ if(isset($_POST['registration'])){
         // если авторизация неудачна
         $_SESSION['res'] = "<div class='error'>Вы ввели неправильно логин/пароль.</div>";
     }
+    redirect();
 }
 
-
-
-// получение динамичной части шаблона .content
-$view = empty($_GET['view']) ? 'enter' : $_GET['view'];
+// получение динамичной части шаблона 
+if(isset($_SESSION['user_id'])) $view = 'chat';
+else $view = empty($_GET['view']) ? 'enter' : $_GET['view'];
 
 switch ($view) {
     case 'reg':
@@ -28,6 +28,10 @@ switch ($view) {
         break;
     case 'logon':
         $headeradd = " - вход";
+
+        break;
+    case 'chat':
+        $headeradd = " - имя";
 
         break;
     default:

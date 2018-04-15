@@ -46,7 +46,7 @@ function registration(){
                         VALUES ('".clear($login)."', '".clear($pass)."')";
             $res = mysqli_query(db::$link_db, $query) or die(mysqli_error(db::$link_db));
             if($customer_id = mysqli_insert_id(db::$link_db)){
-                $_SESSION['res'] = "<div class='success'>Регистрация прошла успешно.</br>Начинайте.</div>";
+                $_SESSION['res'] = "<div class='success'>Регистрация прошла успешно.</div>";
                 // если запись добавлена
                 $_SESSION['customer_id'] = $customer_id;
                 redirect("?view=chat");
@@ -61,3 +61,29 @@ function registration(){
     }
 }
 /* ===Регистрация=== */
+
+//авторизация 
+function logon(){
+    $error = ''; // флаг проверки пустых полей
+    $login = clear(($_POST['login']));
+    $pass = clear($_POST['pass']);
+    if(empty($login)) $error .= '<li>Не указан логин</li>';
+    if(empty($pass)) $error .= '<li>Не указан пароль</li>';
+    
+    if(empty($error)){
+        // если получены данные из полей логин/пароль    
+        $query = "SELECT user_id FROM users WHERE login = '$login' AND pass = '$pass' LIMIT 1";
+        $res = mysqli_query(db::$link_db, $query) or die(mysqli_error(db::$link_db));
+        if(mysqli_num_rows($res) == 1){
+            // если авторизация успешна
+            $row = mysqli_fetch_row($res);
+            $_SESSION['user_id'] = $row[0];
+            $_SESSION['res'] = "<div class='success'>Рады вас видеть.</div>";
+            redirect("?view=chat");
+        }
+    }else{
+        // если не заполнены обязательные поля
+        $_SESSION['res'] = "<div class='error'>Не заполнены обязательные поля: <ul> $error </ul></div>";
+    }
+
+}

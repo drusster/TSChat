@@ -7,7 +7,7 @@
     </a>
 </div>
 <div class="btn-conteiner right">
-    <a href="" id="reg">
+    <a href="" id="authorization">
         OK
     </a>
 </div>
