@@ -15,7 +15,7 @@
         </div>
     </form>
 </div>
-
+<input type="hidden" name="last_messages" value="<?=$messages[0]['message_id']?>"/>
 <?php
     foreach ($messages as $text) {
         ?>
@@ -25,7 +25,6 @@
 <?php
     }
 ?>
-
 <!--<div class="message alien">
     <span>Первый логин</span>Сообщение от первого логина
 </div>

@@ -104,14 +104,23 @@ function message(){
 }
 
 //читаю записанные ранее сообщения
-function read_messages(){
+function read_messages($last_massage = FALSE){
     //объединяю результаты по колонке user_id внешней таблицы messages
-    $query = "SELECT m.text, u.login 
-                    FROM messages m
-                        LEFT JOIN users u ON m.user_id = u.user_id LIMIT 30";
+    if(isset($last_massage) AND $last_massage != NULL) $last_massage = "WHERE m.message_id > '$last_massage' ";
+    $query = "SELECT m.message_id,m.text, u.login 
+                    FROM messages m 
+                        LEFT JOIN users u ON m.user_id = u.user_id ".$last_massage."ORDER BY m.message_id DESC LIMIT 30";
     $res = mysqli_query(db::$link_db, $query) or die(mysqli_error(db::$link_db));
     while($row = mysqli_fetch_assoc($res)){
         $text[] = $row;
+    }
+    if(isset($last_massage) AND $last_massage AND mysqli_num_rows($res) > 0) { 
+        foreach ($text as $value) {
+            $class = ($value['login'] === $_SESSION['login'])? 'my': 'alien';
+            $result .= "<div class='message ".$class."'><span>".$value['login']."</span>".$value['text']."</div>";
+        }
+        //print_arr($value);
+        echo "<input type='hidden' name='last_messages' value=".$value['message_id']."/>".$result;
     }
     return (array)$text;
 }

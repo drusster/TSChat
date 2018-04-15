@@ -25,7 +25,7 @@ if(isset($_POST['registration'])){
 //сообщение от юзера
 if(isset($_POST['message']) AND $_POST['message']){
     message();
-    redirect();
+    exit();
 }
 
 // получение динамичной части шаблона 
@@ -43,12 +43,14 @@ switch ($view) {
         $headeradd = " - вход";
 
         break;
-    case 'chat':
+    case 'chat' AND isset($_SESSION['user_id']) AND isset($_SESSION['login']):
         $headeradd = " - [".$_SESSION['login']."]";
-        $messages = read_messages();
-        print_arr($messages);
+        $messages = read_messages($_GET['last_massage']);
+        if($_GET['last_massage']) exit ();
+        //print_arr($messages);
         break;
     default:
+        $view = 'enter';
         break;
 }
 

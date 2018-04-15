@@ -1,3 +1,22 @@
+function show()  
+        {  var last_massage = $("input[name=last_messages").val();
+            $.ajax({  
+                url: "//tschat/",
+                type: 'GET',
+                data: {view: 'chat',last_massage:last_massage},
+                cache: false,
+                beforeSend: function(){
+                    
+                },
+                success: function(res){  //alert(res);
+            if(res !== ''){
+                    $("input[name=last_messages]").remove();
+                }
+                    $("div.message:first").before(res);  
+                    //alert(last_massage);
+                }  
+            });  
+        }
 jQuery(document).ready(function($){ 
     //задействую кнопки для форм регистрации и авторизации
 $( "#reg").add("#authorization").click(function() {
@@ -26,9 +45,25 @@ $("form[name=form_login_and_pass]").keypress(function(e){
  $( "#button_send_message").click(function() {
     event.preventDefault(); 
     if($( "input[name=message]" ).val() !== ""){
-        $("form[name=send_message]").submit();
+        var message = $( "input[name=message]" ).val();
+        //$("form[name=send_message]").submit();
+        $.ajax({  
+                url: "//tschat/",
+                type: 'POST',
+                data: {message: message},
+                cache: false, 
+                success: function(){  
+                   $( "input[name=message]" ).val(null);
+                }  
+            });
     }
  });
+ //поменяю действие по клавиши Enter в форме сообщения
+ $("form[name=send_message]").keypress(function(e){
+    if(e.keyCode==13){
+        $("#button_send_message").trigger("click");
+    }
+});
  //удаляю сообщение-приветсвие на странице чата
  if($('*').is("form[name=send_message]")){ 
     setTimeout(function(){
@@ -36,5 +71,11 @@ $("form[name=form_login_and_pass]").keypress(function(e){
            $(this).remove();
         });
     },4000);
- }
+
+ 
+ //динамическое обновление чата  
+    //setTimeout(function(){show()},4000);  
+    setInterval('show()',1000);  
+ } 
+ 
 });//jQuery(document).ready(function($)
