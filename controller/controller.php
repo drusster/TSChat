@@ -46,8 +46,8 @@ switch ($view) {
         break;
     case 'chat' AND isset($_SESSION['user_id']) AND isset($_SESSION['login']):
         $headeradd = " - [".$_SESSION['login']."]";
-        $messages = read_messages($_GET['last_massage']);
-        if($_GET['last_massage']) exit ();
+        $messages = read_messages( (int)$_GET['last_massage']);
+        if( (int)$_GET['ajaxzapros'] === 1) exit ();
         //print_arr($messages);
         break;
     default:

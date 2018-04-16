@@ -3,7 +3,7 @@ function show()
             $.ajax({  
                 url: "//tschat/",
                 type: 'GET',
-                data: {view: 'chat',last_massage:last_massage},
+                data: {view: 'chat',last_massage:last_massage,ajaxzapros: 1},
                 cache: false,
                 beforeSend: function(){
                     
@@ -11,9 +11,9 @@ function show()
                 success: function(res){  //alert(res);
             if(res !== ''){
                     $("input[name=last_messages]").remove();
+                    $("span.no_message").remove();
                 }
-                    $("div.message:first").before(res);  
-                    //alert(last_massage);
+                    $("div.chat_content").after(res);  
                 }  
             });  
         }

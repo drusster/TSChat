@@ -17,17 +17,15 @@
 </div>
 <input type="hidden" name="last_messages" value="<?=$messages[0]['message_id']?>"/>
 <?php
-    foreach ($messages as $text) {
-        ?>
-        <div class="message <?=($text['login'] === $_SESSION['login'])? 'my': 'alien';?>">
-            <span><?=$text['login']?></span><?=$text['text']?>
-        </div>
-<?php
-    }
+    if(count($messages) > 0){
+        foreach ($messages as $text) {
+            ?>
+            <div class="message <?=($text['login'] === $_SESSION['login'])? 'my': 'alien';?>">
+                <span><?=$text['login']?></span><?=$text['text']?>
+            </div>
+    <?php
+        }
+    }else{ ?>
+        <span class="no_message">Нет сообщений.</span>
+    <?php    }
 ?>
-<!--<div class="message alien">
-    <span>Первый логин</span>Сообщение от первого логина
-</div>
-<div class="message my">
-    <span>Мой логин</span>Моё сообщение
-</div>-->
