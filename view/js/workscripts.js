@@ -19,8 +19,8 @@ function show()
         }
 jQuery(document).ready(function($){ 
     //задействую кнопки для форм регистрации и авторизации
-$( "#reg").add("#authorization").click(function() {
-    event.preventDefault();
+$( "#reg").add("#authorization").click(function(event) {
+    event.preventDefault(event);
     if($( "input[name=login]" ).val() === ""){
         $( "input[name=login]" ).attr({"placeholder":"Логин не может быть пустым!"});
     }else if( $( "input[name=pass]" ).val() === ""){
@@ -34,15 +34,16 @@ $( "#reg").add("#authorization").click(function() {
 });
 
 // задействую клавишу Entr для форм регистрации (авторизации)
-$("form[name=form_login_and_pass]").keypress(function(e){
-    if(e.keyCode==13){
+$("form[name=form_login_and_pass]").keypress(function(event){
+    if(event.keyCode==13){
+        event.preventDefault();
         $("#reg").trigger("click");
         $("#authorization").trigger("click");
     }
 });
 
 // нажатие на кнопку Отправить
- $( "#button_send_message").click(function() {
+ $( "#button_send_message").click(function(event) {
     event.preventDefault(); 
     if($( "input[name=message]" ).val() !== ""){
         var message = $( "input[name=message]" ).val();
@@ -60,7 +61,8 @@ $("form[name=form_login_and_pass]").keypress(function(e){
  });
  //поменяю действие по клавиши Enter в форме сообщения
  $("form[name=send_message]").keypress(function(e){
-    if(e.keyCode==13){
+    if(e.keyCode===13){ 
+        e.preventDefault();
         $("#button_send_message").trigger("click");
     }
 });
